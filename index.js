@@ -1,6 +1,6 @@
-const fs = require("fs");
+const http = require('http');
 
-fs.unlink("hy.txt", function (error) {
-    if (error) console.error(error);
-    else console.log("remove")
+const server = http.createServer(function (req, res) {
+    res.end("Hello, world!");
 })
+server.listen(3000);
