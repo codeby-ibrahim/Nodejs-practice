@@ -1,11 +1,13 @@
 const express = require('express');
+const app = express();
 
-const app = express()
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', function (req, res) {
-    res.send('hello world')
+    res.send("Chal rha hai!");
 })
-app.get('/profile', function (req, res) {
-    res.send('this is profile page')
-})
-app.listen(3000);
+
+app.listen(3000, function () {
+    console.log("this is runing")
+});
