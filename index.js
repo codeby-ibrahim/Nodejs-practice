@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const fs = require("fs");
+const { log } = require("console");
+
 
 // Set view engine
 app.set("view engine", "ejs");
@@ -14,9 +17,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-    res.render("index"); // Must match index.ejs
+    fs.readdir('./files', function (error, files) {
+        res.render("index" , {files: files});;
+    })
 });
 
 app.listen(3000, () => {
-    console.log("Server running on http://localhost:3000");
+    console.log("Server running");
 });
