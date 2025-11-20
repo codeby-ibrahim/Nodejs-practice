@@ -1,7 +1,7 @@
 {
   "name": "prectice-backand",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,9 +16,5 @@
     "url": "https://github.com/codeby-ibrahim/Nodejs-practice/issues"
   },
   "homepage": "https://github.com/codeby-ibrahim/Nodejs-practice#readme",
-  "description": "",
-  "dependencies": {
-    "ejs": "^3.1.10",
-    "express": "^5.1.0"
-  }
+  "description": ""
 }
