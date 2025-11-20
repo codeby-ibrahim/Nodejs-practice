@@ -16,5 +16,9 @@
     "url": "https://github.com/codeby-ibrahim/Nodejs-practice/issues"
   },
   "homepage": "https://github.com/codeby-ibrahim/Nodejs-practice#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.20.0"
+  }
 }
