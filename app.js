@@ -23,9 +23,9 @@ app.get('/create', async (req, res) => {
 app.get('/update', async (req, res) => {
     try {
         const updatedUser = await userModel.findOneAndUpdate(
-            { username: "ibrahim123" },        
-            { name: "Ibrahim Updated" },        
-            { new: true }                        
+            { username: "ibrahim123" },
+            { name: "Ibrahim Updated" },
+            { new: true }
         );
 
         res.send(updatedUser);
@@ -33,6 +33,36 @@ app.get('/update', async (req, res) => {
         res.status(500).send(error);
     }
 });
+
+app.get('/read', async (req, res) => {
+    try {
+        const users = await userModel.find();
+        res.send(users);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
+app.get('/delete', async (req, res) => {
+    try {
+        const deleteUser = await userModel.findOneAndDelete({
+            username: "ibrahim123"
+        });
+
+        if (!deleteUser) {
+            return res.send("User not found");
+        }
+
+        res.send({
+            message: "User deleted successfully",
+            deleted: deleteUser
+        });
+
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
 
 
 app.listen(3000, () => {
