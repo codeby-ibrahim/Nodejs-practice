@@ -20,6 +20,21 @@ app.get('/create', async (req, res) => {
     }
 });
 
+app.get('/update', async (req, res) => {
+    try {
+        const updatedUser = await userModel.findOneAndUpdate(
+            { username: "ibrahim123" },        
+            { name: "Ibrahim Updated" },        
+            { new: true }                        
+        );
+
+        res.send(updatedUser);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
+
 app.listen(3000, () => {
     console.log("Server running on port 3000");
 });
